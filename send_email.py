@@ -12,8 +12,8 @@ from email.mime.application import MIMEApplication
 
 def send_raw_email():
     region_name = 'us-east-1'
-    SENDER = "Name <email>"
-    RECIPIENT = "email"
+    SENDER = "Cortamail <pkonda@incorta.in>"
+    RECIPIENT = "parthasaradhi1992@gmail.com"
     CONFIGURATION_SET = "ses-events"
     SUBJECT = "Test Email - 1"
     BODY_TEXT = "Hello,\r\nThis content is from an automated script"
