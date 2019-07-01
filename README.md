@@ -9,7 +9,7 @@
 - ## Setting up Notification for an Identity
 - ## Understanding ConfigurationSets
 - ## Steps to follow to configure the webhook events
-- Understanding Supression List
+- ## Understanding Supression List
 <br >
 
 # Understanding SES
