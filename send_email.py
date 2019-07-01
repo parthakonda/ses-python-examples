@@ -12,16 +12,16 @@ from email.mime.application import MIMEApplication
 
 def send_raw_email():
     region_name = 'us-east-1'
-    SENDER = "Cortamail <from_email>"
-    RECIPIENT = "to_email"
-    CONFIGURATION_SET = ""
-    SUBJECT = "Test Email"
+    SENDER = "Name <email>"
+    RECIPIENT = "email"
+    CONFIGURATION_SET = "ses-events"
+    SUBJECT = "Test Email - 1"
     BODY_TEXT = "Hello,\r\nThis content is from an automated script"
     BODY_HTML = """\
         <html>
         <head></head>
         <body>
-        <h1>Hello!</h1>
+        <h1>Hello - 1!</h1>
         <p>This content is from an automated script.</p>
         </body>
         </html>
@@ -39,7 +39,9 @@ def send_raw_email():
     msg_body.attach(textpart)
     msg_body.attach(htmlpart)
     msg.attach(msg_body)
-    msg.add_header('Customer', '<A good Customer>')
+    msg.add_header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
+    msg.add_header('Cache - Control', 'post - check = 0, pre - check = 0')
+    msg.add_header('Pragma', 'no-cache')
     try:
         #Provide the contents of the email.
         response = client.send_raw_email(
@@ -50,10 +52,16 @@ def send_raw_email():
             RawMessage={
                 'Data':msg.as_string(),
             },
-            ConfigurationSetName=CONFIGURATION_SET
+            ConfigurationSetName=CONFIGURATION_SET,
+            Tags=[{
+                'Name': "Customer",
+                "Value": "my_cusstomer"
+            }]
         )
     except ClientError as e:
         print(e.response['Error']['Message'])
     else:
         print("Email sent! Message ID:")
         print(response['MessageId'])
+
+send_raw_email()
