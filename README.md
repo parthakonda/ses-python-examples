@@ -56,7 +56,7 @@ By default, SES comes in sandbox mode. And there are certain restrictions will b
 - ## Verifying email
     As mentioned above, you need to verify your email address before sending any emails to outside. Once you add an entry of email then SES will send the confirmation email to the specified email address, and recipient need to confirm the subscription.
 
-# Understanding Notification for and Identity
+# Understanding Notification for an Identity
 There are 3 different notifications that are required to be addressed.
 
 - Bounce Notification
